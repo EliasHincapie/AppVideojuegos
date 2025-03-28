@@ -40,6 +40,17 @@ dependencies {
     implementation(libs.play.services.games)
 
 
+    implementation(libs.glide)
+    annotationProcessor(libs.glide.compiler)
+
+
+
+    // Retrofit
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.gson)
+
+    implementation(libs.autoimageslider) // ✅ Corrección aplicada
+
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)

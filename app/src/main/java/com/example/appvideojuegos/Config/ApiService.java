@@ -1,6 +1,8 @@
 package com.example.appvideojuegos.Config;
 
+
 import com.example.appvideojuegos.Modelo.Game;
+
 import java.util.List;
 import retrofit2.Call;
 import retrofit2.http.GET;

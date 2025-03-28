@@ -4,6 +4,8 @@ import com.example.appvideojuegos.Modelo.Game;
 import java.util.List;
 
 public interface MainView {
-    void showGames(List<Game> games);
-    void showError(String message);
+    void mostrarCargando();
+    void ocultarCargando();
+    void mostrarJuegos(List<Game> juegos);
+    void mostrarError(String mensaje);
 }
