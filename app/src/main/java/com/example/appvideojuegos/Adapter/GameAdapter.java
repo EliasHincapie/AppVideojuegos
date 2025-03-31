@@ -18,9 +18,14 @@ public class GameAdapter extends RecyclerView.Adapter<GameAdapter.GameViewHolder
     private List<Game> gameList;
     private Context context;
 
-    public GameAdapter(Context context, List<Game> gameList) {
+    private OnItemClickListener listener;
+
+
+    public GameAdapter(Context context, List<Game> gameList, OnItemClickListener listener) {
         this.context = context;
         this.gameList = gameList;
+        this.listener = listener;
+
     }
 
     @Override
@@ -32,16 +37,8 @@ public class GameAdapter extends RecyclerView.Adapter<GameAdapter.GameViewHolder
     @Override
     public void onBindViewHolder(GameViewHolder holder, int position) {
         Game game = gameList.get(position);
-        holder.title.setText(game.getTitle());
-        Glide.with(context).load(game.getThumbnail()).into(holder.image);
+        holder.bind(game, listener);
 
-        holder.itemView.setOnClickListener(v -> {
-            Intent intent = new Intent(context, GameDetailActivity.class);
-            intent.putExtra("game_title", game.getTitle());
-            intent.putExtra("game_image", game.getThumbnail());
-            intent.putExtra("game_description", game.getShortDescription());
-            context.startActivity(intent);
-        });
     }
 
     @Override
@@ -57,6 +54,12 @@ public class GameAdapter extends RecyclerView.Adapter<GameAdapter.GameViewHolder
             super(itemView);
             title = itemView.findViewById(R.id.gameTitle);
             image = itemView.findViewById(R.id.gameImage);
+        }
+
+        public void bind(final Game game, final OnItemClickListener listener) {
+            title.setText(game.getTitle());
+            Glide.with(itemView.getContext()).load(game.getThumbnail()).into(image);
+            itemView.setOnClickListener(v -> listener.onItemClick(game));
         }
     }
 }

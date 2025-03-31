@@ -8,4 +8,8 @@ public interface MainView {
     void ocultarCargando();
     void mostrarJuegos(List<Game> juegos);
     void mostrarError(String mensaje);
+
+    void onItemClick(Game juego);
+
+    void actualizarListaFavoritos(List<Game> allFavorites);
 }

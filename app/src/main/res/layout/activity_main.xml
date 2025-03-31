@@ -5,28 +5,41 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    tools:context=".vista.MainActivity">
 
-    <!-- Carrusel -->
-    <com.smarteist.autoimageslider.SliderView
-        android:id="@+id/sliderView"
+    <!-- Carrusel de imágenes -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewSlider"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:layout_marginBottom="16dp"
-        tools:ignore="MissingClass" />
+        android:orientation="horizontal"/>
 
+    <!-- Botón para ver juegos favoritos -->
+    <Button
+        android:id="@+id/btnFavoritos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:padding="8dp"
+        android:text="Ver Favoritos"
+        android:textSize="16sp"/>
+
+    <!-- ProgressBar (Carga) -->
     <ProgressBar
         android:id="@+id/progressBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:visibility="gone"/>
+        android:visibility="gone"
+        style="?android:attr/progressBarStyleLarge"/>
 
     <!-- Lista de juegos (formato de cuadros) -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewGames"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="380dp"
         android:layout_marginTop="8dp"
         android:padding="4dp"/>
 </LinearLayout>

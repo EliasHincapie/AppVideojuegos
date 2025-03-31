@@ -10,7 +10,6 @@ constraintlayout = "2.2.1"
 playServicesGames = "23.2.0"
 retrofit = "2.9.0"
 glide = "4.15.1"
-autoimageslider = "1.4.0"
 
 
 [libraries]
@@ -28,8 +27,6 @@ play-services-games = { group = "com.google.android.gms", name = "play-services-
 
 glide = { group = "com.github.bumptech.glide", name = "glide", version.ref = "glide" }
 glide-compiler = { group = "com.github.bumptech.glide", name = "compiler", version.ref = "glide" }
-
-autoimageslider = { group = "com.github.smarteist", name = "autoimageslider", version.ref = "autoimageslider" }
 
 
 retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }

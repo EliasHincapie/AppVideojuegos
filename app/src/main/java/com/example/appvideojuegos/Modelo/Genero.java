@@ -1,7 +1,8 @@
 package com.example.appvideojuegos.Modelo;
 import java.io.IOException;
+import java.io.Serializable;
 
-public enum Genero {
+public enum Genero implements Serializable {
      ACTION, ACTION_GAME, ACTION_RPG, ARPG, BATTLE_ROYALE, CARD_GAME, FANTASY, FIGHTING, GENRE_MMORPG, MMO, MMOARPG, MMORPG, MOBA, RACING, SHOOTER, SOCIAL, SPORTS, STRATEGY;
 
     public String toValue() {

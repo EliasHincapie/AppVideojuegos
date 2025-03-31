@@ -49,7 +49,6 @@ dependencies {
     implementation(libs.retrofit)
     implementation(libs.retrofit.gson)
 
-    implementation(libs.autoimageslider) // ✅ Corrección aplicada
 
 
     testImplementation(libs.junit)

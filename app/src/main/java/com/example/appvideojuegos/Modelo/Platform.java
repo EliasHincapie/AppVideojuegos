@@ -1,8 +1,9 @@
 package com.example.appvideojuegos.Modelo;
 
 import java.io.IOException;
+import java.io.Serializable;
 
-public enum Platform {
+public enum Platform implements Serializable {
     PC_WINDOWS, PC_WINDOWS_WEB_BROWSER, WEB_BROWSER;
 
     public String toValue() {

@@ -1,7 +1,9 @@
 package com.example.appvideojuegos.Modelo;
+import java.io.Serializable;
+public class Game implements  Serializable{
+    private static final long serialVersionUID = 1L; // Añadir esto para serialización
 
-public class Game {
-    private long id;
+    private int id;
     private String title;
     private String thumbnail;
     private String shortDescription;
@@ -13,39 +15,96 @@ public class Game {
     private String releaseDate;
     private String freetogameProfileURL;
 
-    public long getID() { return id; }
-    public void setID(long value) { this.id = value; }
+    // Getters y Setters
+    public int getId() {
+        return id;
+    }
 
-    public String getTitle() { return title; }
-    public void setTitle(String value) { this.title = value; }
+    public void setId(int id) {
+        this.id = id;
+    }
+    public String getTitle() {
+        return title;
+    }
 
-    public String getThumbnail() { return thumbnail; }
-    public void setThumbnail(String value) { this.thumbnail = value; }
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
-    public String getShortDescription() { return shortDescription; }
-    public void setShortDescription(String value) { this.shortDescription = value; }
+    public String getThumbnail() {
+        return thumbnail;
+    }
 
-    public String getGameURL() { return gameURL; }
-    public void setGameURL(String value) { this.gameURL = value; }
+    public void setThumbnail(String thumbnail) {
+        this.thumbnail = thumbnail;
+    }
 
-    public Genero getGenre() { return genre; }
-    public void setGenre(Genero value) { this.genre = value; }
+    public String getShortDescription() {
+        return shortDescription;
+    }
 
-    public Platform getPlatform() { return platform; }
-    public void setPlatform(Platform value) { this.platform = value; }
+    public void setShortDescription(String shortDescription) {
+        this.shortDescription = shortDescription;
+    }
 
-    public String getPublisher() { return publisher; }
-    public void setPublisher(String value) { this.publisher = value; }
+    public String getGameURL() {
+        return gameURL;
+    }
 
-    public String getDeveloper() { return developer; }
-    public void setDeveloper(String value) { this.developer = value; }
+    public void setGameURL(String gameURL) {
+        this.gameURL = gameURL;
+    }
 
-    public String getReleaseDate() { return releaseDate; }
-    public void setReleaseDate(String value) { this.releaseDate = value; }
+    public Genero getGenre() {
+        return genre;
+    }
 
-    public String getFreetogameProfileURL() { return freetogameProfileURL; }
-    public void setFreetogameProfileURL(String value) { this.freetogameProfileURL = value; }
+    public void setGenre(Genero genre) {
+        this.genre = genre;
+    }
+
+    public Platform getPlatform() {
+        return platform;
+    }
+
+    public void setPlatform(Platform platform) {
+        this.platform = platform;
+    }
+
+    public String getPublisher() {
+        return publisher;
+    }
+
+    public void setPublisher(String publisher) {
+        this.publisher = publisher;
+    }
+
+    public String getDeveloper() {
+        return developer;
+    }
+
+    public void setDeveloper(String developer) {
+        this.developer = developer;
+    }
+
+    public String getReleaseDate() {
+        return releaseDate;
+    }
+
+    public void setReleaseDate(String releaseDate) {
+        this.releaseDate = releaseDate;
+    }
+
+    public String getFreetogameProfileURL() {
+        return freetogameProfileURL;
+    }
+
+    public void setFreetogameProfileURL(String freetogameProfileURL) {
+        this.freetogameProfileURL = freetogameProfileURL;
+    }
 }
+
+
 
 
 
