@@ -22,9 +22,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
+        android:background="#D71010"
+        android:backgroundTint="#E20909"
         android:padding="8dp"
         android:text="Ver Favoritos"
-        android:textSize="16sp"/>
+        android:textSize="16sp" />
 
     <!-- ProgressBar (Carga) -->
     <ProgressBar
@@ -39,7 +41,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewGames"
         android:layout_width="match_parent"
-        android:layout_height="380dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:padding="4dp"/>
 </LinearLayout>

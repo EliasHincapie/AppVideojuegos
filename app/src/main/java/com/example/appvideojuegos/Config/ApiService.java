@@ -6,8 +6,10 @@ import com.example.appvideojuegos.Modelo.Game;
 import java.util.List;
 import retrofit2.Call;
 import retrofit2.http.GET;
+import retrofit2.http.Path;
 
 public interface ApiService {
     @GET("games")
     Call<List<Game>> getGames(); // Llama a la API y devuelve una lista de juegos
+
 }
