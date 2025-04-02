@@ -5,6 +5,7 @@ import java.io.Serializable;
 
 public enum Platform implements Serializable {
     PC_WINDOWS, PC_WINDOWS_WEB_BROWSER, WEB_BROWSER;
+    // Metodo para convertir el enum a su representación en String
 
     public String toValue() {
         switch (this) {
@@ -14,7 +15,7 @@ public enum Platform implements Serializable {
         }
         return null;
     }
-
+    // Metodo estático para convertir un String en el correspondiente valor del enum
     public static Platform forValue(String value) throws IOException {
         if (value.equals("PC (Windows)")) return PC_WINDOWS;
         if (value.equals("PC (Windows), Web Browser")) return PC_WINDOWS_WEB_BROWSER;

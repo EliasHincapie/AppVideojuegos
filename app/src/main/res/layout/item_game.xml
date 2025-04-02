@@ -9,6 +9,8 @@
     android:background="@android:color/darker_gray"
     android:elevation="4dp">
 
+    <!-- Imagen del juego -->
+
     <ImageView
         android:id="@+id/gameImage"
         android:layout_width="match_parent"
@@ -17,6 +19,7 @@
 
 
 
+    <!-- Título del juego -->
 
     <TextView
         android:id="@+id/gameTitle"

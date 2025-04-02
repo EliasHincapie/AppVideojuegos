@@ -5,6 +5,7 @@ import java.io.Serializable;
 public enum Genre implements Serializable {
 
      ACTION, ACTION_GAME, ACTION_RPG, ARPG, BATTLE_ROYALE, CARD_GAME, FANTASY, FIGHTING, GENRE_MMORPG, MMO, MMOARPG, MMORPG, MOBA, RACING, SHOOTER, SOCIAL, SPORTS, STRATEGY;
+    // Metodo para convertir el enum a su representación en String
 
     public String toValue() {
         switch (this) {
@@ -27,9 +28,11 @@ public enum Genre implements Serializable {
             case SPORTS: return "Sports";
             case STRATEGY: return "Strategy";
         }
-        return null;
+        return null; // Retorna null si el género no se encuentra (esto no debería ocurrir en uso normal)
     }
 
+
+    // Metodo estático para convertir un String en el correspondiente valor del enum
     public static Genre forValue(String value) throws IOException {
         if (value.equals("Action")) return ACTION;
         if (value.equals("Action Game")) return ACTION_GAME;
@@ -49,6 +52,8 @@ public enum Genre implements Serializable {
         if (value.equals("Social")) return SOCIAL;
         if (value.equals("Sports")) return SPORTS;
         if (value.equals("Strategy")) return STRATEGY;
+
+        // Si el valor no coincide con ninguno, lanza una excepción
         throw new IOException("Cannot deserialize Genre");
     }
 }
