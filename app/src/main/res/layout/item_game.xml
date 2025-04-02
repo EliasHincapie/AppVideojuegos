@@ -17,6 +17,7 @@
 
 
 
+
     <TextView
         android:id="@+id/gameTitle"
         android:layout_width="match_parent"
@@ -26,13 +27,6 @@
         android:gravity="center"
         android:padding="8dp"/>
 
-    <TextView
-        android:id="@+id/gameShortDescription"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/gameTitle"
-        android:ellipsize="end"
-        android:maxLines="2"
-        android:textSize="12sp" />
+
 
 </LinearLayout>

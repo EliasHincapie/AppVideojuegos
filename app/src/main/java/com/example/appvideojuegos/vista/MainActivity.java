@@ -71,7 +71,9 @@ public class MainActivity extends AppCompatActivity implements MainView, OnItemC
         iniciarCarrusel(); // Llamamos a la función para que inicie el auto-scroll
 
 
-    }private void iniciarCarrusel() {
+    }
+
+    private void iniciarCarrusel() {
         runnable = new Runnable() {
             @Override
             public void run() {

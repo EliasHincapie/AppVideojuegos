@@ -45,19 +45,19 @@ public class GameAdapter extends RecyclerView.Adapter<GameAdapter.GameViewHolder
     }
 
     public static class GameViewHolder extends RecyclerView.ViewHolder {
-        TextView title,shortDescription;
+        TextView title;
         ImageView image;
 
         public GameViewHolder(View itemView) {
             super(itemView);
             title = itemView.findViewById(R.id.gameTitle);
-            shortDescription = itemView.findViewById(R.id.gameShortDescription);
+
             image = itemView.findViewById(R.id.gameImage);
+
         }
 
         public void bind(final Game game, final OnItemClickListener listener) {
             title.setText(game.getTitle());
-            shortDescription.setText(game.getShortDescription());
             Glide.with(itemView.getContext()).load(game.getThumbnail()).into(image);
             itemView.setOnClickListener(v -> listener.onItemClick(game));
 

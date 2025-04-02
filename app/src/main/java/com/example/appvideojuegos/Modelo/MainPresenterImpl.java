@@ -3,62 +3,54 @@ package com.example.appvideojuegos.Modelo;
 import android.content.Context;
 import android.util.Log;
 
-import com.example.appvideojuegos.Config.ApiService;
-import com.example.appvideojuegos.Config.RetrofitClient;
+import com.example.appvideojuegos.Config.GameApiService;
 import com.example.appvideojuegos.Presentador.FavoritesManager;
 import com.example.appvideojuegos.Presentador.MainPresenter;
 import com.example.appvideojuegos.Presentador.MainView;
 
 import java.util.List;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class MainPresenterImpl implements MainPresenter {
     private MainView vista;
-    private ApiService apiService;
+    private GameApiService apiService;
     private FavoritesManager favoritesManager;
-
 
     public MainPresenterImpl(MainView view) {
         this.vista = view;
-        apiService = RetrofitClient.getClient().create(ApiService.class);
 
-        // Inicializar correctamente el FavoritesManager
+        // Inicializar correctamente el FavoritesManager y GameApiService
         if (view instanceof Context) {
-            this.favoritesManager = new FavoritesManagerImpl((Context) view);
+            Context context = (Context) view;
+            this.favoritesManager = new FavoritesManagerImpl(context);
+            this.apiService = new GameApiService(context);
         }
     }
 
     @Override
     public void obtenerJuegos() {
         vista.mostrarCargando();
-        apiService.getGames().enqueue(new Callback<List<Game>>() {
+
+        apiService.getGames(new GameApiService.GamesResponseListener() {
             @Override
-            public void onResponse(Call<List<Game>> call, Response<List<Game>> response) {
+            public void onResponse(List<Game> games) {
                 vista.ocultarCargando();
-                if (response.isSuccessful() && response.body() != null) {
-                    // Añade este log para ver los datos de la respuesta
-                    if (!response.body().isEmpty()) {
-                        Game firstGame = response.body().get(0);
-                        Log.d("API_RESPONSE", "First game: " +
-                                "Title: " + firstGame.getTitle() +
-                                ", Description: " + firstGame.getShortDescription());
-                    }
-                    vista.mostrarJuegos(response.body());
-                } else {
-                    vista.mostrarError("Error al obtener juegos");
+
+                // Log para debug
+                if (!games.isEmpty()) {
+                    Game firstGame = games.get(0);
+                    Log.d("API_RESPONSE", "First game: " + "Title: " + firstGame.getTitle() +
+                            ", Description: " + firstGame.getShortDescription());
                 }
+
+                vista.mostrarJuegos(games);
             }
+
             @Override
-            public void onFailure(Call<List<Game>> call, Throwable t) {
-
-                Log.e("MainPresenter", "Error al obtener juegos", t);
+            public void onError(String error) {
+                Log.e("MainPresenter", "Error al obtener juegos: " + error);
                 vista.ocultarCargando();
-                vista.mostrarError("Fallo de conexión: " + t.getMessage());
-
+                vista.mostrarError("Fallo de conexión: " + error);
             }
         });
     }
 }
-

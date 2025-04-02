@@ -2,7 +2,8 @@ package com.example.appvideojuegos.Modelo;
 import java.io.IOException;
 import java.io.Serializable;
 
-public enum Genero implements Serializable {
+public enum Genre implements Serializable {
+
      ACTION, ACTION_GAME, ACTION_RPG, ARPG, BATTLE_ROYALE, CARD_GAME, FANTASY, FIGHTING, GENRE_MMORPG, MMO, MMOARPG, MMORPG, MOBA, RACING, SHOOTER, SOCIAL, SPORTS, STRATEGY;
 
     public String toValue() {
@@ -29,7 +30,7 @@ public enum Genero implements Serializable {
         return null;
     }
 
-    public static Genero forValue(String value) throws IOException {
+    public static Genre forValue(String value) throws IOException {
         if (value.equals("Action")) return ACTION;
         if (value.equals("Action Game")) return ACTION_GAME;
         if (value.equals("Action RPG")) return ACTION_RPG;

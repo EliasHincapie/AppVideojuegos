@@ -45,9 +45,12 @@ dependencies {
 
 
 
-    // Retrofit
-    implementation(libs.retrofit)
-    implementation(libs.retrofit.gson)
+
+    // Replace Retrofit with Volley
+    implementation(libs.volley)
+    // Keep Gson for JSON parsing
+    implementation(libs.retrofit.gson) // You can keep using Gson from Retrofit
+
 
 
 
